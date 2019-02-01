@@ -22,7 +22,7 @@ for ($i=$lenght-1 ; $i>=0 ;$i-- ){
  //  echo gmp_fact($number[$i]).PHP_EOL;
     for($x=1;$x<=$number[$i]; $x++){
         //   echo $x.PHP_EOL;
-
+//
         $fact=$fact*$x;
   //      echo $fact.PHP_EOL;
     }

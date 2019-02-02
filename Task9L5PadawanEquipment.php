@@ -44,4 +44,3 @@ if($money >= $totalSum || $students==0 || $totalSum==0){
 
 
 
-

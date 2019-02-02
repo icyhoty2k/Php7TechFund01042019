@@ -34,60 +34,73 @@ do {
 //echo "totalsum=".$totalSumCoins;
 
 do {
- //   $totalSumCoins=doubleval($totalSumCoins);
+    //round($totalSumCoins);
+    //   $totalSumCoins=doubleval($totalSumCoins);
     $product = readline();
     switch ($product) {
 
 
-        case "Nuts" :echo PHP_EOL;
-
+        case "Nuts" :{
             if (($totalSumCoins - $Nuts) < 0) {
                 echo "Sorry, not enough money";
                 break;
-            }
-            $totalSumCoins -= $Nuts;
-            echo "Purchased ".strtolower($product) ;
-            break;
-        case "Water" :echo PHP_EOL;
-            if (($totalSumCoins - $Water) < 0) {
-                echo "Sorry, not enough money";
+            } else {
+                $totalSumCoins -= $Nuts;
+                echo "Purchased " . strtolower($product)."\n";
                 break;
             }
-            $totalSumCoins -= $Water;
-            echo  "Purchased $product".strtolower($product);
-            break;
-        case "Crisps" :echo PHP_EOL;
-            if (($totalSumCoins - $Crisps) < 0) {
-                echo "Sorry, not enough money";
+        }
+        case "Water" :
+            {
+                if (($totalSumCoins - $Water) < 0) {
+                    echo "Sorry, not enough money";
+                    break;
+                } else {
+                    $totalSumCoins -= $Water;
+                    echo "Purchased $product" . strtolower($product)."\n";
+                    break;}
+            }
+        case "Crisps" :
+            {
+                if (($totalSumCoins - $Crisps) < 0) {
+                    echo "Sorry, not enough money";
+                    break;
+                }
+                $totalSumCoins -= $Crisps;
+                echo "Purchased " . strtolower($product)."\n";
                 break;
             }
-            $totalSumCoins -= $Crisps;
-            echo "Purchased ".strtolower($product) ;
-            break;
         case "Soda" :
-            if (($totalSumCoins - $Soda) < -0) {
-                echo "Sorry, not enough money\n";
-                break;
+            {
+                var_dump($Soda);
+                if (($totalSumCoins - $Soda) <  $Soda) {
+                    echo "Sorry, not enough money\n";
+                    break;
+                } else {
+                    $totalSumCoins -= $Soda;
+                    echo "Purchased " . strtolower($product)."\n";
+                    break;}
             }
-            $totalSumCoins -= $Soda;
-            echo "Purchased ".strtolower($product);
-            break;
-        case "Coke" :;
+        case "Coke" :{
             if (($totalSumCoins - $Coke) < 0) {
                 echo "Sorry, not enough money\n" ;
                 break;
-            }
-            $totalSumCoins -= $Coke;
-            echo PHP_EOL . "Purchased ".strtolower($product);
-            break;
-        default:
-            if($product=="End")
-            break;
-            {
-                echo "Invalid product\n" ;
+            } else {
+                $totalSumCoins -= $Coke;
+                echo PHP_EOL . "Purchased ".strtolower($product)."\n";
+                break;}
+        }
+        default:{
+
+            if ($product == "End")
+                break;
+            else {
+                echo "Invalid product\n";
                 break;
             }
+        }
     }
+
 } while ($product != "End");
 
 

@@ -18,5 +18,5 @@ Input	Output
  */
 
 $meters = intval(readline());
-$kilometers = $meters/1000;
+$kilometers = round($meters/1000 ,2);
 printf("%.2f",$kilometers);

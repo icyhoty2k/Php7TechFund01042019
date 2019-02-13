@@ -1,0 +1,29 @@
+<?php
+
+$inputArr=explode(" ",readline());
+$elements=count($inputArr);
+$leftSum=null;
+$rightSum=null;
+$check=false;
+if($elements <=1){
+    echo '0';
+    $check=true;
+    exit;
+}
+for ($i = 0; $i <$elements-1 ; $i++) {
+    $leftSum+=$inputArr[$i];
+    $rightSum=array_sum($inputArr)-$leftSum-$inputArr[$i+1];
+//    echo $leftSum. '->';
+//    echo $rightSum;
+//    echo PHP_EOL;
+    if($leftSum == $rightSum){
+        echo $i+1;
+        $check=true;
+        break;
+    }
+}
+if(!$check){
+    echo 'no';
+    exit;
+}
+?>

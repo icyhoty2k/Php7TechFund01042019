@@ -16,7 +16,7 @@ $arr = explode(" ", $input);
 $arrMatches=[];
 $size=count($arr);
 $currentMatches=[];
-for($i=0; $i<count($arr); $i++){
+for($i=0; $i<count($arr)-1; $i++){
     if($i==count($arr)-1 && empty($arrMatches)){
        array_push($currentMatches ,$arr[0]);
        array_push($arrMatches , $currentMatches);

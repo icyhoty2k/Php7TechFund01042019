@@ -1,15 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: G750js
- * Date: 14.2.2019 г.
- * Time: 1:30
- */
 
-
-/**
- *
- */
 <?php
 $key =readline();
 If ($key==4){

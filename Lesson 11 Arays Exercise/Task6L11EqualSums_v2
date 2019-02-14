@@ -1,29 +1,33 @@
 <?php
 
-$inputArr=explode(" ",readline());
-$elements=count($inputArr);
-$leftSum=null;
-$rightSum=null;
-$check=false;
-if($elements <=1){
-    echo '0';
-    $check=true;
-    exit;
-}
-for ($i = 0; $i <$elements-1 ; $i++) {
-    $leftSum+=$inputArr[$i];
-    $rightSum=array_sum($inputArr)-$leftSum-$inputArr[$i+1];
-//    echo $leftSum. '->';
-//    echo $rightSum;
-//    echo PHP_EOL;
-    if($leftSum == $rightSum){
-        echo $i+1;
-        $check=true;
-        break;
+$inputArr = explode(" ", readline());
+$elements = count($inputArr);
+$leftSum = null;
+$rightSum = null;
+$thirdElement = null;
+$check = false;
+$l = 0;
+$r = 0;
+$sum=array_sum($inputArr);
+
+
+for ($a = 0; $a < $elements; $a++) {
+    $sum_l = 0;
+    $sum_r = 0;
+    for ($l = 0; $l < $a; $l++) {
+        $sum_l += $inputArr[$l];
     }
+    for ($r = $a + 1; $r < $elements; $r++) {
+        $sum_r += $inputArr[$r];
+
+    }
+
+    if ($sum_l == $sum_r) {
+        echo $a;
+        return;
+    }
+
+
 }
-if(!$check){
-    echo 'no';
-    exit;
-}
-?>
+
+    echo "no";

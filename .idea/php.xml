@@ -12,7 +12,6 @@
       <extension name="ZendCache" enabled="true" />
       <extension name="event" enabled="true" />
       <extension name="mapscript" enabled="true" />
-      <extension name="msgpack" enabled="true" />
       <extension name="rdkafka" enabled="true" />
       <extension name="solr" enabled="true" />
       <extension name="sync" enabled="true" />

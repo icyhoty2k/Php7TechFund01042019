@@ -1,0 +1,23 @@
+<?php
+
+
+function smallestNum(int $num1, int $num2, int $num3)
+{
+    $smallest = $num1;
+   if($smallest > $num2){
+       $smallest=$num2;
+   }else if($smallest > $num3){
+       $smallest=$num3;
+   }if($smallest !=$num1){
+    if($num2 > $num3) {
+        $smallest=$num3;
+    } else $smallest=$num2;
+}
+   echo $smallest;
+}
+
+$x = readline();
+$y = readline();
+$z = readline();
+
+smallestNum($x, $y, $z);

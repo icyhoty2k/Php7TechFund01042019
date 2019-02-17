@@ -13,7 +13,7 @@ function findMiddle(string $character){
     if(strlen($character) % 2 == 0){
         $found =$character[(strlen($character)/2)-1].$character[strlen($character)/2];
     } else
-        $found=$character[strlen($character)/2];
+        $found=$character[intval(floor((strlen($character)/2))) ];
     return $found;
 }
 

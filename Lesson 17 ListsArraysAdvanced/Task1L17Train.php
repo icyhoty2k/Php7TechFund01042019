@@ -14,7 +14,7 @@
 
 $inputWagons = array_map('intval',explode(" ",readline()));
 $wagonCapacity = intval(readline());
-$command =explode(" ",readline());
+$command =explode(" ",readline( ));
 
 while($command[0] !='end'){
     if ($command[0] == "Add"){

@@ -45,15 +45,16 @@ class Student{
      */
     public function getAverageGrade()
     {
-        $this->averageGrade=array_sum($this->grades)/count($this->grades);
-        return sprintf('%0.2f',$this->averageGrade);
-
+        $test=$this->averageGrade=array_sum($this->grades)/count($this->grades);
+        if($test >=5) {
+            return sprintf('%0.2f', $this->averageGrade);
+        }
     }
 
-function __toString()
-{
-    return $this->getName()." -> ".$this->getAverageGrade().PHP_EOL;
-}
+    function __toString()
+    {
+        return $this->getName()." -> ".$this->getAverageGrade().PHP_EOL;
+    }
 }
 $name;
 $input;
@@ -64,7 +65,7 @@ for($i=0; $i<$numberofStuedents; $i++){
     $name=array_shift($input);
     $currStudent = new Student($name,$input);
     if($currStudent->getAverageGrade() >=5.00){
-array_push($averages, $currStudent);
+        array_push($averages, $currStudent);
 
     }
 
@@ -75,10 +76,10 @@ usort($averages ,function (Student $s1 , Student $s2){
     $name1=$s1->getName();
     $name2=$s2->getName();
     if($name1 === $name2){
-    return $avgGrade2<=>$avgGrade1;}
+        return $avgGrade2<=>$avgGrade1;}
     return $name1<=>$name2;
 }
-    );
+);
 
 foreach ($averages as $av){
     echo $av;

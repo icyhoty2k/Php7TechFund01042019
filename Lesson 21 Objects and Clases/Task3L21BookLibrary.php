@@ -8,7 +8,7 @@
 
 class Library{
     private $name;
-    private $listOfBooks;
+    private $listOfBooks=[];
 
     /**
      * Library constructor.
@@ -48,9 +48,9 @@ class Library{
     /**
      * @param array $listOfBooks
      */
-    public function setListOfBooks(array $listOfBooks): void
+    public function setListOfBooks($listOfBooks): void
     {
-        $this->listOfBooks = $listOfBooks;
+        array_push($this->getListOfBooks(),$listOfBooks);
     }
 }
 
@@ -178,11 +178,23 @@ class Book {
     }
 
 }
-//$myLib=new Library();
+$myLib=new Library("GlobalLib",[]);
 $booksInput=readline();
+$bookContainer=[];
 while($booksInput-- >0){
 
     list($title , $author ,$publisher ,$releaseDate , $Isbn , $price)=explode(" ",readline());
-    echo $title;
+    $currentBook = new Book($title , $author ,$publisher ,$releaseDate , $Isbn , $price);
+
+    array_push($bookContainer,$currentBook);
 }
+$totals=[];
+foreach($bookContainer as $bc){
+    if(in_array($totals,$bc->getAuthor(),$totals)){
+
+    }
+   array_push($totals,$bc->getAuthor());
+
+}
+
 

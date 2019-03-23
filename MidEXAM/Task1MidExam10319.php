@@ -15,11 +15,13 @@ $foodEexpensesPerPersonForDay = readline();
 $priceOfRoomPerPerson = readline();
 $totalDistanceForVacation=0;
 $traveledDistanceDay=0;
-
+if($daysofTrip==0 || $budget==0 || $groupOfPeope==0){
+    exit;
+}
 //
 $totalFooodExpenses =$daysofTrip*$groupOfPeope*$foodEexpensesPerPersonForDay;
 if($groupOfPeope >10){
-$totalPriceForHotel=$priceOfRoomPerPerson*$groupOfPeope*$daysofTrip*0.75;
+    $totalPriceForHotel=$priceOfRoomPerPerson*$groupOfPeope*$daysofTrip*0.75;
 }
 else{
     $totalPriceForHotel=$priceOfRoomPerPerson*$groupOfPeope*$daysofTrip;
@@ -33,19 +35,40 @@ $additionalExpenses=$currentExpenses*0.4;
 
 $totalAdditions=0;
 $totalPriceForTravel=0;
-for($i=0 ; $i<$daysofTrip; $i++){
+$tempBudget=$budget;
+//echo $currentExpenses.PHP_EOL;
+for($i=1 ; $i<=$daysofTrip; $i++){
+
     $traveledDistanceDay = readline();
-    $totalPriceForTravel = $totalPriceForTravel+($traveledDistanceDay*$fuelPerKM);
-    echo $totalPriceForTravel.PHP_EOL;
-if($i % 3 == 0){
-    $totalAdditions+=$additionalExpenses;
-}
-    if($i % 5 == 0){
-        $totalAdditions+=$additionalExpenses;
+    $currentExpenses=$currentExpenses+($traveledDistanceDay*$fuelPerKM);
+
+    if($i!=0 && $i % 3 == 0){
+        $currentExpenses=$currentExpenses+($currentExpenses*0.4);
     }
+    if($i!=0 && $i % 5 == 0){
+        $currentExpenses=$currentExpenses+($currentExpenses*0.4);
+    }
+    if($i!=0 && $i % 7 == 0){
+        $widrawAmount=$currentExpenses/$groupOfPeope;
+        $currentExpenses=$currentExpenses-$widrawAmount;
 
+    }
+    if($budget<$currentExpenses ){
+        $ostatak=$currentExpenses - $budget;
+        echo sprintf("Not enough money to continue the trip. You need %.2f$ more.", $ostatak);
+        exit;
+    }else {
+
+    }
 }
 
-echo "totalPriceForTravel- ".$totalPriceForTravel.PHP_EOL;
-echo "totalAdditions- ".$totalAdditions.PHP_EOL;
-echo "currentExpenses- ".$currentExpenses.PHP_EOL;
+
+
+
+if($budget-$currentExpenses >=0 ){
+    $ostatak=$budget-$currentExpenses;
+    echo sprintf("You have reached the destination. You have %.2f$ budget left.",$ostatak);
+}else if($budget-$currentExpenses <0 ) {
+    $ostatak = $currentExpenses - $budget;
+    echo sprintf("Not enough money to continue the trip. You need %.2f$ more.", $ostatak);
+}

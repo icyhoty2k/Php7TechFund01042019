@@ -193,7 +193,7 @@ foreach($bookContainer as $bc){
     if(in_array($totals,$bc->getAuthor(),$totals)){
 
     }
-   array_push($totals,$bc->getAuthor());
+   array_push($totals,$bc->getAuthor(),$bc->getPrice());
 
 }
 

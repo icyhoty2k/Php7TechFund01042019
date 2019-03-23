@@ -7,26 +7,31 @@
  */
 
 $input = explode(" : ",readline());
-
 $assocArray=[];
-$i=0;
-
-$founnd = "";
 while($input[0] !='end'){
-if($input[0]==key_exists($input[0],$assocArray)){
-    array_push($assocArray["$input[0]"],$input[1]);
+if(!key_exists($input[0],$assocArray)){
+    $assocArray["$input[0]"][]=$input[1];
 }else{
-    $assocArray["$input[0]"]=array($input[1]);
+    $assocArray["$input[0]"][]=$input[1];
 }
 
     $input = explode(" : ",readline());
 }
-//var_dump($assocArray);
 
-arsort($assocArray);
+
+uksort($assocArray, function($a, $b) use ($assocArray){
+    $count1=count($assocArray[$a]);
+    $count2=count($assocArray[$b]);
+
+    return $count2 <=> $count1; });
+
+
+
 foreach ($assocArray as $item => $value) {
-    count($value);
     asort($value);
+
     echo $item.": ".count($value).PHP_EOL;
-    echo "-- ".implode(PHP_EOL."-- ",($value)).PHP_EOL;
+    foreach ($value as $v){
+        echo "-- ".$v.PHP_EOL;
+    }
 }

@@ -31,5 +31,3 @@ while ($inputWord != 'stop') {
 foreach ($assocArray as $item => $value) {
     echo $item . " -> " . $value . "K" . PHP_EOL;
 }
-if () {
-    texh}

@@ -8,18 +8,19 @@
 
 
 $inputWord = readline();
-$inputNumber=readline();
-$assocArray=[];
-$i=0;
+$inputNumber = readline();
+
+$assocArray = [];
+$i = 0;
 
 $founnd = "";
-while($inputWord !='stop'){
-if(array_key_exists($inputWord , $assocArray)==$inputWord){
-   // echo $inputWord.PHP_EOL;
-    $assocArray["$inputWord"]+=$inputNumber;
-} else{
-    $assocArray["$inputWord"]=$inputNumber;
-}
+while ($inputWord != 'stop') {
+    if (array_key_exists($inputWord, $assocArray) == $inputWord) {
+        // echo $inputWord.PHP_EOL;
+        $assocArray["$inputWord"] += $inputNumber;
+    } else {
+        $assocArray["$inputWord"] = $inputNumber;
+    }
 
     $inputWord = readline();
     $inputNumber = readline();
@@ -28,5 +29,7 @@ if(array_key_exists($inputWord , $assocArray)==$inputWord){
 }
 
 foreach ($assocArray as $item => $value) {
-    echo $item." -> ".$value."K".PHP_EOL;
+    echo $item . " -> " . $value . "K" . PHP_EOL;
 }
+if () {
+    texh}
